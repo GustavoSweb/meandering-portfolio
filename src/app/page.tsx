@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -25,18 +24,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-elegant">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <span className="text-xl font-semibold">Portfolio</span>
+            <span className="text-xl font-semibold text-gradient">Portfolio</span>
             <div className="hidden sm:flex space-x-8">
               {['home', 'about', 'projects', 'skills', 'contact'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
-                  className={`nav-link ${activeSection === section ? 'text-gray-900' : ''}`}
+                  className={`nav-link ${activeSection === section ? 'text-accent' : ''}`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
@@ -47,7 +46,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-16">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-16 hero-gradient">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,22 +54,22 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-white">
               Welcome to My Portfolio
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               I craft digital experiences that matter
             </p>
             <div className="flex justify-center space-x-4">
               <a
                 href="#contact"
-                className="px-8 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-accent text-white rounded-full hover:bg-accent/90 transition-colors"
               >
                 Get in Touch
               </a>
               <a
                 href="#projects"
-                className="px-8 py-3 bg-white border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+                className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full hover:bg-white/20 transition-colors"
               >
                 View Projects
               </a>
@@ -80,14 +79,14 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-white">
+      <section id="about" className="bg-gradient-elegant">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="glass-card p-8"
+            className="glass-card p-8 card-hover"
           >
             <h2 className="text-3xl font-bold mb-6">About Me</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -121,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="bg-gray-50">
+      <section id="projects" className="bg-gradient-accent">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,12 +128,12 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center text-white">Featured Projects</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((project) => (
                 <div
                   key={project}
-                  className="glass-card p-6 hover:transform hover:scale-105 transition-transform duration-300"
+                  className="glass-card p-6 card-hover bg-white/90"
                 >
                   <div className="aspect-video bg-gray-200 rounded-lg mb-4"></div>
                   <h3 className="text-xl font-semibold mb-2">Project {project}</h3>
@@ -142,8 +141,8 @@ export default function Home() {
                     A brief description of the project and the technologies used.
                   </p>
                   <div className="flex space-x-2">
-                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">React</span>
-                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">TypeScript</span>
+                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">React</span>
+                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">TypeScript</span>
                   </div>
                 </div>
               ))}
@@ -153,14 +152,14 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="bg-white">
+      <section id="skills" className="bg-gradient-elegant">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="glass-card p-8"
+            className="glass-card p-8 card-hover"
           >
             <h2 className="text-3xl font-bold mb-12 text-center">Skills & Technologies</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -179,16 +178,16 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="bg-gray-50">
+      <section id="contact" className="bg-gradient-accent">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="glass-card p-8 max-w-2xl mx-auto"
+            className="glass-card p-8 max-w-2xl mx-auto card-hover"
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center text-gradient">Get in Touch</h2>
             <div className="space-y-6">
               <div className="flex justify-center space-x-6">
                 <a href="#" className="text-gray-600 hover:text-primary transition-colors">
